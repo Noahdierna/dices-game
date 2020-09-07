@@ -2,11 +2,15 @@
 document.querySelector(".container").style.visibility = "hidden";
 document.querySelector(".container2").style.visibility = "hidden";
 document.querySelector(".container3").style.visibility = "hidden";
+document.querySelector(".cptr").style.visibility = "hidden";
+
 
 let currentDiv = document.querySelector(".add");
 let i = document.querySelector("i");
-let start = document.querySelector("button");
+let start = document.querySelector(".start");
+start.disabled = true;
 let numberPlayer = 0;
+
 
 function addPlayer() {
       if (numberPlayer < 10) {
@@ -23,10 +27,25 @@ function addPlayer() {
                   
                   newDiv.innerHTML = newDiv.innerHTML + "<i onclick='deletePlayer()' class='fas fa-times'></i>";
                   start.disabled = false;
+                  document.querySelector("input").value = "";
             }
             
       } else {
             i.disabled = true;
+      }
+}
+
+function deletePlayer() {
+      document.querySelector(".first").removeChild(event.target.parentNode);
+
+      document.querySelectorAll(".player").forEach(element => {
+            test = element.innerHTML.split("<")[0].split(" ")[2];
+            
+            element.innerHTML = "Player " + --numberPlayer + ": " + test + "<i onclick='deletePlayer()' class='fas fa-times'></i>";
+      })
+      numberPlayer = document.querySelectorAll(".player").length;
+      if (numberPlayer == 0) {
+            start.disabled = true;
       }
 }
 
@@ -35,10 +54,6 @@ function playGame() {
       document.querySelector(".container2").style.visibility = "visible";
       document.querySelector(".container3").style.visibility = "visible";
       document.querySelector(".first").style.visibility = "hidden";
-
-}
-
-function deletePlayer() {
 
 }
 
@@ -101,6 +116,7 @@ document.addEventListener("click", (event) => {
                   element.classList.remove("yolo");
             });
             controller = false;
+
             button.disabled = false;
       }
 })
