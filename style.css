@@ -6,15 +6,11 @@ body{
 .first {
       display: flex;
       flex-direction: column;
-<<<<<<< HEAD
-      height:45rem;
-=======
       background-color: #de9151;
       height:100%;
->>>>>>> dcdc8c858fcafb6dfe95be82f03ccff4c4b59de4
       justify-content: center;
       height: auto;
-      width: 100%;
+      width: 99%;
       position: absolute;
 }
 svg {
@@ -60,16 +56,36 @@ input{
 }
 button{
     height: 5rem;
-    width: 9rem;
+    /*width: 9rem;*/
       background-color: #e8451e;
       border-radius: 4rem;
       font-size: 1.5rem;
       border: none;
-      box-shadow :5px 5px 0px 0px #2e2e3a ;
       margin:1rem;
       align-self: center;
+      cursor: pointer;
+            box-shadow :1px 1px 1px 0px black ;
+
 }
 
+button:hover{
+      color: wheat;
+      box-shadow :3px 3px 3px 0px black ;
+
+}
+button:disabled{
+      background-color: #ad3c20;
+      cursor: auto;
+      color: grey;
+}
+
+
+button:disabled:hover{
+      color: grey;
+      box-shadow :1px 1px 1px 0px black ;
+
+
+}
 
 .container{
       width: 80%;
