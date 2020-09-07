@@ -6,14 +6,19 @@ body{
 .first {
       display: flex;
       flex-direction: column;
+<<<<<<< HEAD
       height:45rem;
+=======
+      background-color: #de9151;
+      height:100%;
+>>>>>>> dcdc8c858fcafb6dfe95be82f03ccff4c4b59de4
       justify-content: center;
       height: auto;
       width: 100%;
       position: absolute;
 }
 svg {
-      height: 20rem;
+      height: 30rem;
 
 }
 .add{
