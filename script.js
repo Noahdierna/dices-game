@@ -95,8 +95,11 @@ let div9 = document.getElementsByClassName('number')[8]
 
 window.addEventListener('keydown', function (e) {
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-      console.log(`${e.keyCode}`);
+      /*console.log(`${e.keyCode}`);*/
       switch (`${e.keyCode}`) {
+            case '13':
+                  addPlayer()
+                  break;
             case '32':
                   if (button.disabled === false) {
                         rollTheDices()

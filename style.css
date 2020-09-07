@@ -6,12 +6,12 @@ body{
       display: flex;
       flex-direction: column;
       background-color: #de9151;
-      height:45rem;
+      height:100%;
       justify-content: center;
       height: auto;
 }
 svg {
-      height: 20rem;
+      height: 30rem;
 
 }
 .add{
