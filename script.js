@@ -20,11 +20,11 @@ function addPlayer() {
                   );
                   newDiv.appendChild(newContent);
                   document.querySelector(".first").insertBefore(newDiv, currentDiv.nextSibling);
-                  
+
                   newDiv.innerHTML = newDiv.innerHTML + "<i onclick='deletePlayer()' class='fas fa-times'></i>";
                   start.disabled = false;
             }
-            
+
       } else {
             i.disabled = true;
       }
@@ -81,18 +81,134 @@ let allNumbersChecked = false;
 
 let round = 0;
 
-/*
+let div1 = document.getElementsByClassName('number')[0]
+let div2 = document.getElementsByClassName('number')[1]
+let div3 = document.getElementsByClassName('number')[2]
+let div4 = document.getElementsByClassName('number')[3]
+let div5 = document.getElementsByClassName('number')[4]
+let div6 = document.getElementsByClassName('number')[5]
+let div7 = document.getElementsByClassName('number')[6]
+let div8 = document.getElementsByClassName('number')[7]
+let div9 = document.getElementsByClassName('number')[8]
+
+
+
 window.addEventListener('keydown', function (e) {
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
       console.log(`${e.keyCode}`);
       switch (`${e.keyCode}`) {
             case '32':
-                  rollTheDices()
+                  if (button.disabled === false) {
+                        rollTheDices()
+                  }
+                  else {
+                        alert('Vous devez sélectionner un nombre vert avant de relancer les dés')
+                  }
+                  break;
+
             case '49':
+                  if ([...div1.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[0].classList.remove('yolo')
+                        document.getElementsByClassName('number')[0].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '50':
+                  if ([...div2.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[1].classList.remove('yolo')
+                        document.getElementsByClassName('number')[1].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '51':
+                  if ([...div3.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[2].classList.remove('yolo')
+                        document.getElementsByClassName('number')[2].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '52':
+                  if ([...div4.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[3].classList.remove('yolo')
+                        document.getElementsByClassName('number')[3].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '53':
+                  if ([...div5.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[4].classList.remove('yolo')
+                        document.getElementsByClassName('number')[4].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '54':
+                  if ([...div6.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[5].classList.remove('yolo')
+                        document.getElementsByClassName('number')[5].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '55':
+                  if ([...div7.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[6].classList.remove('yolo')
+                        document.getElementsByClassName('number')[6].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '56':
+                  if ([...div8.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[7].classList.remove('yolo')
+                        document.getElementsByClassName('number')[7].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
+            case '57':
+                  if ([...div9.classList].includes('yolo') === true) {
+                        document.getElementsByClassName('number')[8].classList.remove('yolo')
+                        document.getElementsByClassName('number')[8].classList.add('checked')
+                        numbers.forEach(element => {
+                              element.classList.remove("yolo");
+                        });
+                        controller = false;
+                        button.disabled = false;
+                  }
+                  break;
 
       }
 })
-*/
+
 
 document.addEventListener("click", (event) => {
       if ([...event.target.classList].includes("yolo") && [...event.target.classList].includes("checked") == false) {
@@ -157,5 +273,5 @@ function refresh() {
       restart.style.visibility = "hidden"
       cptr = 0;
       allNumbersChecked = false;
-      
+
 }
