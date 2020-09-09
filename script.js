@@ -319,7 +319,14 @@ function rollTheDices() {
     }
 
     if (round == 2) {
-      restart.innerHTML = "New game";
+      if (
+        playerCptr ==
+        document.getElementsByClassName("playerInfo").length - 1
+      ) {
+        restart.innerHTML = "New game";
+      } else {
+        restart.innerHTML = "Next Player";
+      }
     } else {
       restart.innerHTML = "Next round";
     }
