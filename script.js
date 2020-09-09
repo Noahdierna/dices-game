@@ -3,13 +3,14 @@ document.querySelector(".round").style.visibility = "hidden";
 document.querySelector(".container").style.visibility = "hidden";
 document.querySelector(".container2").style.visibility = "hidden";
 document.querySelector(".container3").style.visibility = "hidden";
-document.querySelector(".cptr").style.visibility = "hidden";
+document.querySelector(".container4").style.visibility = "hidden";
 
 let currentDiv = document.querySelector(".add");
 let i = document.querySelector("i");
 let start = document.querySelector(".start");
 start.disabled = true;
 let numberPlayer = 0;
+let restart = document.querySelector(".restart");
 
 function addPlayer() {
   if (numberPlayer < 10) {
@@ -66,8 +67,33 @@ function playGame() {
   document.querySelector(".container").style.visibility = "visible";
   document.querySelector(".container2").style.visibility = "visible";
   document.querySelector(".container3").style.visibility = "visible";
-  document.querySelector(".cptr").style.visibility = "visible";
+  restart.style.display = "none";
+  document.querySelector(".container4").style.visibility = "visible";
   document.querySelector(".first").style.visibility = "hidden";
+
+  for (let i = 0; i < numberPlayer; i++) {
+    newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "playerInfo");
+    document.querySelector(".container4").appendChild(newDiv);
+
+    test = document
+      .getElementsByClassName("player")
+      [i].innerHTML.split("<")[0]
+      .split(" ")[2];
+    newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "name");
+    newContent = document.createTextNode(test);
+    newDiv.appendChild(newContent);
+    document.getElementsByClassName("playerInfo")[i].appendChild(newDiv);
+    document.getElementsByClassName("name")[i].innerHTML = newDiv.innerHTML;
+
+    newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "cptr");
+    newContent = document.createTextNode("0");
+    newDiv.appendChild(newContent);
+    document.getElementsByClassName("playerInfo")[i].appendChild(newDiv);
+    document.getElementsByClassName("cptr")[i].innerHTML = "0";
+  }
 }
 
 //Game Page
@@ -82,15 +108,13 @@ var button = document.querySelectorAll("button")[1];
 
 let numbers = document.querySelectorAll(".number");
 
-let cptr = document.querySelector(".cptr").innerHTML;
-
-let restart = document.querySelector(".restart");
-
 let controller = false;
 
 let allNumbersChecked = false;
 
 let round = 0;
+
+let cptr = 0;
 
 let div1 = document.getElementsByClassName("number")[0];
 let div2 = document.getElementsByClassName("number")[1];
@@ -291,8 +315,9 @@ function rollTheDices() {
     if (round == 2) {
       restart.innerHTML = "New game";
     } else {
-      restart.innerHTML = "Manche suivante";
+      restart.innerHTML = "Next round";
     }
+    restart.style.display = "block";
     restart.style.visibility = "visible";
   }
   button.disabled = true;
@@ -311,6 +336,7 @@ function refresh() {
   });
   button.disabled = false;
   restart.style.visibility = "hidden";
+  restart.style.display = "none";
   cptr = 0;
   allNumbersChecked = false;
 }

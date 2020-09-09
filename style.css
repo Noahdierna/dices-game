@@ -89,7 +89,8 @@ button:disabled:hover {
 
 .round {
   text-align: center;
-  font-size: larger;
+  font-size: 28px;
+  margin-top: 2%;
 }
 
 .container {
@@ -97,7 +98,7 @@ button:disabled:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 5% auto;
+  margin: 3% auto;
   background-color: #de9151;
 }
 
@@ -150,4 +151,16 @@ button:disabled:hover {
 
 .restart {
   visibility: hidden;
+}
+
+.container4 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 22px;
+}
+
+.playerInfo {
+  width: min-content;
+  text-align: center;
 }
