@@ -116,6 +116,8 @@ let round = 0;
 
 let cptr = 0;
 
+let playerCptr = 0;
+
 let div1 = document.getElementsByClassName("number")[0];
 let div2 = document.getElementsByClassName("number")[1];
 let div3 = document.getElementsByClassName("number")[2];
@@ -142,12 +144,14 @@ window.addEventListener("keydown", function (e) {
       }
       break;
     case "32":
-      if (button.disabled === false) {
-        rollTheDices();
-      } else {
-        alert(
-          "Vous devez sélectionner un nombre vert avant de relancer les dés"
-        );
+      if (document.querySelector(".first").style.visibility == "hidden") {
+        if (button.disabled === false) {
+          rollTheDices();
+        } else {
+          alert(
+            "Vous devez sélectionner un nombre vert avant de relancer les dés"
+          );
+        }
       }
       break;
     case "49":
@@ -305,11 +309,13 @@ function rollTheDices() {
     });
 
     if (allNumbersChecked == false) {
-      document.querySelector(".cptr").innerHTML =
-        document.querySelector(".cptr").innerHTML - 20;
+      document.getElementsByClassName("cptr")[playerCptr].innerHTML =
+        document.getElementsByClassName("cptr")[playerCptr].innerHTML - 20;
     } else {
-      document.querySelector(".cptr").innerHTML =
-        parseInt(document.querySelector(".cptr").innerHTML) + cptr;
+      document.getElementsByClassName("cptr")[playerCptr].innerHTML =
+        parseInt(
+          document.getElementsByClassName("cptr")[playerCptr].innerHTML
+        ) + cptr;
     }
 
     if (round == 2) {
@@ -327,7 +333,21 @@ function refresh() {
   round++;
   document.querySelector(".round").innerHTML = "Round " + (round + 1);
   if (round == 3) {
-    document.querySelector(".cptr").innerHTML = 0;
+    if (
+      playerCptr ==
+      document.getElementsByClassName("playerInfo").length - 1
+    ) {
+      for (
+        let i = 0;
+        i < document.getElementsByClassName("playerInfo").length;
+        i++
+      ) {
+        document.getElementsByClassName("cptr")[i].innerHTML = 0;
+      }
+      playerCptr = 0;
+    } else {
+      playerCptr++;
+    }
     round = 0;
     document.querySelector(".round").innerHTML = "Round 1";
   }
