@@ -78,7 +78,7 @@ function playGame() {
 
     test = document
       .getElementsByClassName("player")
-      [i].innerHTML.split("<")[0]
+      [numberPlayer - 1 - i].innerHTML.split("<")[0]
       .split(" ")[2];
     newDiv = document.createElement("div");
     newDiv.setAttribute("class", "name");
