@@ -144,6 +144,7 @@ window.addEventListener("keydown", function (e) {
       }
       break;
     case "32":
+      e.preventDefault();
       if (document.querySelector(".first").style.visibility == "hidden") {
         if (button.disabled === false) {
           rollTheDices();
